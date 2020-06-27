@@ -11,7 +11,7 @@ public class UserDTO {
     
     private Long id;
 
-    @Email(message = "Email inválido !")
+    @Email(message = "Email inválido")
     private String email;
 
     @Length(min = 3, message = "A senha deve conter no mínimo 3 caracteres.")
