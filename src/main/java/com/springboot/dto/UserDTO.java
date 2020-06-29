@@ -1,5 +1,7 @@
 package com.springboot.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
@@ -7,6 +9,7 @@ import lombok.Data;
 
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
     
     private Long id;

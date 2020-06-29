@@ -3,6 +3,7 @@ package com.springboot.controller;
 import com.springboot.dto.UserDTO;
 import com.springboot.entity.User;
 import com.springboot.service.UserService;
+import com.springboot.util.Bcrypt;
 import com.springboot.response.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class UserController {
         user.setId(userDTO.getId());
         user.setEmail(userDTO.getEmail());
         user.setName(userDTO.getName());
-        user.setPassword(userDTO.getPassword());
+        user.setPassword(Bcrypt.getHash(userDTO.getPassword()));
     
         return user;
     }
@@ -61,8 +62,7 @@ public class UserController {
         userDTO.setId(user.getId());
         userDTO.setEmail(user.getEmail());
         userDTO.setName(user.getName());
-        userDTO.setPassword(user.getPassword());
-    
+            
         return userDTO;
     }
 }
