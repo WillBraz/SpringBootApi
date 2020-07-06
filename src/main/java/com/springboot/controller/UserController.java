@@ -1,5 +1,7 @@
 package com.springboot.controller;
 
+import javax.validation.Valid;
+
 import com.springboot.dto.UserDTO;
 import com.springboot.entity.User;
 import com.springboot.service.UserService;
@@ -10,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<Response<UserDTO>> createUser(@Validated @RequestBody UserDTO userDTO, BindingResult bindingResult)  {
+    public ResponseEntity<Response<UserDTO>> createUser(@Valid @RequestBody UserDTO userDTO, BindingResult bindingResult)  {
 
         Response<UserDTO> responseUserDTO = new Response<UserDTO>();
 
